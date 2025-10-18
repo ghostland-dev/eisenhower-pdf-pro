@@ -1,0 +1,4 @@
+project_id = "***REMOVED***"
+
+[functions.break-down-task]
+verify_jwt = false

@@ -5,6 +5,7 @@ Application web moderne pour organiser vos tâches selon la méthode d'Eisenhowe
 ## ✨ Fonctionnalités
 
 - 🎯 **Classification automatique** : Ajoutez vos tâches et sélectionnez leur catégorie
+- 🤖 **Découpage intelligent avec IA** : L'IA Gemini décompose automatiquement vos grosses tâches en sous-tâches actionnables
 - 📱 **Responsive** : Fonctionne parfaitement sur mobile, tablette et desktop
 - 💾 **Sauvegarde automatique** : Vos tâches sont sauvegardées dans votre navigateur
 - 📄 **Export PDF** : Générez un PDF professionnel de votre matrice
@@ -32,19 +33,26 @@ Distractions à minimiser ou éliminer.
 
 ## 🚀 Utilisation
 
-1. **Ajouter une tâche** :
+1. **Ajouter une tâche simple** :
    - Tapez votre tâche dans le champ (max 500 caractères)
    - Sélectionnez la catégorie appropriée
-   - Cliquez sur "Ajouter la tâche" ou pressez Entrée
+   - Cliquez sur "Ajouter" ou pressez Entrée
 
-2. **Supprimer une tâche** :
+2. **Découper une tâche complexe avec l'IA** :
+   - Tapez votre grosse tâche dans le champ
+   - Cliquez sur "Découper avec IA" ✨
+   - L'IA analysera votre tâche et proposera 2-5 sous-tâches
+   - Sélectionnez les sous-tâches que vous souhaitez ajouter
+   - Cliquez sur "Ajouter les sous-tâches sélectionnées"
+
+3. **Supprimer une tâche** :
    - Survolez la tâche et cliquez sur l'icône poubelle
 
-3. **Exporter en PDF** :
+4. **Exporter en PDF** :
    - Cliquez sur "Exporter en PDF"
    - Le fichier sera téléchargé automatiquement
 
-4. **Sauvegarder manuellement** :
+5. **Sauvegarder manuellement** :
    - Cliquez sur "Sauvegarder" pour forcer une sauvegarde
 
 ## 🛡️ Sécurité
@@ -65,6 +73,8 @@ Distractions à minimiser ou éliminer.
 - **Zod** - Validation de schémas
 - **jsPDF** - Génération de PDF
 - **LocalStorage** - Persistance des données
+- **Lovable Cloud** - Backend intégré
+- **Lovable AI (Gemini)** - Intelligence artificielle pour découpage de tâches
 
 ## 📦 Installation locale
 
@@ -117,6 +127,7 @@ src/
 │   ├── QuadrantCard.tsx        # Carte de quadrant
 │   ├── TaskInput.tsx           # Formulaire d'ajout
 │   ├── TaskItem.tsx            # Élément de tâche
+│   ├── TaskBreakdownDialog.tsx # Dialog de découpage IA
 │   └── ErrorBoundary.tsx       # Gestion d'erreurs
 ├── lib/
 │   ├── pdfGenerator.ts         # Génération PDF
@@ -125,8 +136,14 @@ src/
 │   └── utils.ts                # Utilitaires
 ├── types/
 │   └── task.ts                 # Types TypeScript
-└── pages/
-    └── Index.tsx               # Page principale
+├── pages/
+│   └── Index.tsx               # Page principale
+└── integrations/
+    └── supabase/               # Client Lovable Cloud
+supabase/
+└── functions/
+    └── break-down-task/        # Edge function IA
+        └── index.ts
 ```
 
 ## 🐛 Débogage
