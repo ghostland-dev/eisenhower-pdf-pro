@@ -1,73 +1,157 @@
-# Welcome to your Lovable project
+# 📊 Matrice d'Eisenhower - Gestionnaire de Tâches
 
-## Project info
+Application web moderne pour organiser vos tâches selon la méthode d'Eisenhower : classez vos priorités selon l'urgence et l'importance.
 
-**URL**: https://lovable.dev/projects/83c614c5-6f53-4290-9bd4-f0927aed19b8
+## ✨ Fonctionnalités
 
-## How can I edit this code?
+- 🎯 **Classification automatique** : Ajoutez vos tâches et sélectionnez leur catégorie
+- 📱 **Responsive** : Fonctionne parfaitement sur mobile, tablette et desktop
+- 💾 **Sauvegarde automatique** : Vos tâches sont sauvegardées dans votre navigateur
+- 📄 **Export PDF** : Générez un PDF professionnel de votre matrice
+- 🎨 **Interface moderne** : Design épuré avec animations fluides
+- 🔒 **Validation** : Protection contre les entrées invalides
+- ♿ **Accessible** : Navigation au clavier et labels ARIA
 
-There are several ways of editing your application.
+## 🎨 Les 4 Quadrants
 
-**Use Lovable**
+### 1. Urgent & Important (Vert)
+**À FAIRE IMMÉDIATEMENT**
+Tâches critiques nécessitant une attention immédiate.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/83c614c5-6f53-4290-9bd4-f0927aed19b8) and start prompting.
+### 2. Important mais Non Urgent (Bleu)
+**À PLANIFIER**
+Tâches importantes pour vos objectifs à long terme.
 
-Changes made via Lovable will be committed automatically to this repo.
+### 3. Urgent mais Non Important (Orange)
+**À DÉLÉGUER**
+Tâches urgentes mais qui peuvent être déléguées.
 
-**Use your preferred IDE**
+### 4. Ni Urgent Ni Important (Rose)
+**À ÉLIMINER**
+Distractions à minimiser ou éliminer.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Utilisation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Ajouter une tâche** :
+   - Tapez votre tâche dans le champ (max 500 caractères)
+   - Sélectionnez la catégorie appropriée
+   - Cliquez sur "Ajouter la tâche" ou pressez Entrée
 
-Follow these steps:
+2. **Supprimer une tâche** :
+   - Survolez la tâche et cliquez sur l'icône poubelle
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+3. **Exporter en PDF** :
+   - Cliquez sur "Exporter en PDF"
+   - Le fichier sera téléchargé automatiquement
+
+4. **Sauvegarder manuellement** :
+   - Cliquez sur "Sauvegarder" pour forcer une sauvegarde
+
+## 🛡️ Sécurité
+
+- ✅ Validation Zod des entrées utilisateur
+- ✅ Sanitization automatique (trim)
+- ✅ Limite de caractères (500 max)
+- ✅ Protection contre les entrées vides
+- ✅ Gestion d'erreurs complète
+- ✅ ErrorBoundary React
+
+## 🎯 Technologies
+
+- **React 18** - Framework UI moderne
+- **TypeScript** - Typage statique
+- **Tailwind CSS** - Styles utilitaires
+- **shadcn/ui** - Composants UI
+- **Zod** - Validation de schémas
+- **jsPDF** - Génération de PDF
+- **LocalStorage** - Persistance des données
+
+## 📦 Installation locale
+
+```bash
+# Cloner le repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Installer les dépendances
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Lancer le serveur de développement
 npm run dev
+
+# Builder pour la production
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## 🌐 Déploiement
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Via Lovable
+1. Cliquez sur le bouton **Publish** en haut à droite
+2. Votre app sera déployée automatiquement
 
-**Use GitHub Codespaces**
+### Via Vercel/Netlify
+```bash
+npm run build
+# Déployez le dossier dist/
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📱 PWA (Progressive Web App)
 
-## What technologies are used for this project?
+L'application peut être installée sur votre appareil :
+- **iOS** : Safari > Partager > Ajouter à l'écran d'accueil
+- **Android** : Chrome > Menu > Installer l'application
 
-This project is built with:
+## 🎓 Méthode Eisenhower
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Cette méthode de gestion du temps, créée par Dwight D. Eisenhower (34ème président des USA), aide à :
+- Prioriser efficacement vos tâches
+- Distinguer l'urgent de l'important
+- Réduire le stress et améliorer la productivité
+- Mieux déléguer et éliminer les distractions
 
-## How can I deploy this project?
+## 🔧 Structure du projet
 
-Simply open [Lovable](https://lovable.dev/projects/83c614c5-6f53-4290-9bd4-f0927aed19b8) and click on Share -> Publish.
+```
+src/
+├── components/
+│   ├── EisenhowerMatrix.tsx   # Composant principal
+│   ├── QuadrantCard.tsx        # Carte de quadrant
+│   ├── TaskInput.tsx           # Formulaire d'ajout
+│   ├── TaskItem.tsx            # Élément de tâche
+│   └── ErrorBoundary.tsx       # Gestion d'erreurs
+├── lib/
+│   ├── pdfGenerator.ts         # Génération PDF
+│   ├── storage.ts              # LocalStorage
+│   ├── validation.ts           # Schémas Zod
+│   └── utils.ts                # Utilitaires
+├── types/
+│   └── task.ts                 # Types TypeScript
+└── pages/
+    └── Index.tsx               # Page principale
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 🐛 Débogage
 
-Yes, you can!
+Si vous rencontrez des problèmes :
+1. Vérifiez la console du navigateur
+2. Videz le cache et LocalStorage
+3. Rechargez la page
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📄 Licence
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Ce projet est open source et disponible sous licence MIT.
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
+
+## 📞 Support
+
+Pour toute question ou suggestion :
+- Consultez la [documentation Lovable](https://docs.lovable.dev/)
+- Rejoignez la [communauté Discord](https://discord.com/channels/1119885301872070706/1280461670979993613)
+
+---
+
+**Fait avec ❤️ avec Lovable**
+
+[URL du projet](https://lovable.dev/projects/83c614c5-6f53-4290-9bd4-f0927aed19b8)
