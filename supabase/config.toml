@@ -1,0 +1,4 @@
+project_id = "bewecifmqsvilwnorqmd"
+
+[functions.break-down-task]
+verify_jwt = false
